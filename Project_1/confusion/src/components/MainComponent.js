@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import Menu from './components/MenuComponent';
-import { DISHES } from './shared/dishes';
-
+import Menu from './MenuComponent';
+import { DISHES } from '../shared/dishes';
+import DishDetail from './DishdetailComponent';
 import { Navbar, NavbarBrand } from 'reactstrap';
 
-class App extends Component {
+class Main extends Component {
 
   constructor(props){
     super(props);
@@ -18,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <Navbar dark color="primary">
           <div className="container">
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
@@ -30,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
