@@ -25,7 +25,7 @@ class DishDetail extends Component {
                             {item.comment} <br /> <br />
                         </li>
                         <li>
-                            {styledItem} <br /> <br />
+                        {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(item.date)))} <br /> <br />
                         </li>
                     </div>
                 );
@@ -46,6 +46,20 @@ class DishDetail extends Component {
 
     }
 
+    renderDish(dish) {
+        return (
+            <div>
+                <Card>
+                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            </div>
+        );
+    }
+
     render() {
 
         if (this.props.dish != null) {
@@ -53,13 +67,7 @@ class DishDetail extends Component {
             return (
                 <div className="row">
                     <div className="col-md-5 col-sm-12 m-1">
-                        <Card>
-                            <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
-                            <CardBody>
-                                <CardTitle>{this.props.dish.name}</CardTitle>
-                                <CardText>{this.props.dish.description}</CardText>
-                            </CardBody>
-                        </Card>
+                        {this.renderDish(this.props.dish)}
                     </div>
 
                     <div className="col-md-5 col-sm-12 m-1">
